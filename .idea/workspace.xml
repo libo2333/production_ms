@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d77e05b-e3f9-42dd-a11c-8b98b1211566" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/production_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/production_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/production_ssm/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/production_ssm/production_ssm.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssm_Online/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssm_Online/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssm_Online/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssm_Online/ssm_Online.iml" beforeDir="false" />
     </list>
     <ignored path="ignoreFile/" />
     <ignored path="$PROJECT_DIR$/ssm_Online/target/" />
@@ -32,29 +32,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="54">
-                <caret line="2" selection-start-line="2" selection-end-line="2" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/production/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -116,17 +94,6 @@
               <item name="IDEAtest13" type="b2602c69:ProjectViewProjectNode" />
               <item name="IDEAtest13" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="IDEAtest13" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IDEAtest13" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IDEAtest13" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IDEAtest13" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -137,7 +104,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558018050219" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558018662411" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/cs.txt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -290,12 +257,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558012883349</updated>
-      <workItem from="1558012885367" duration="5145000" />
+      <workItem from="1558012885367" duration="5757000" />
     </task>
+    <task id="LOCAL-00001" summary="look">
+      <created>1558018257556</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558018257557</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5145000" />
+    <option name="totallyTimeSpent" value="5757000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -306,11 +281,11 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Spring" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.28756058" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49924356" visible="true" weight="0.57027465" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.50075644" side_tool="true" weight="0.57027465" />
       <window_info anchor="bottom" id="Java Enterprise" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" weight="0.32956383" />
@@ -349,6 +324,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="look" />
+    <option name="LAST_COMMIT_MESSAGE" value="look" />
+  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
@@ -365,16 +344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="54">
-            <caret line="2" selection-start-line="2" selection-end-line="2" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -395,10 +364,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/production/pom.xml">
+    <entry file="file://$PROJECT_DIR$/production_ssm/production_ssm.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="-1057" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/production_ssm/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="54">
+            <caret line="2" selection-start-line="2" selection-end-line="2" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
@@ -467,7 +451,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ssm_Online</last-edited>
+          <last-edited>production_ssm</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
