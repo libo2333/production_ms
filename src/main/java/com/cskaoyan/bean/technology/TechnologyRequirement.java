@@ -52,4 +52,15 @@ public class TechnologyRequirement {
     public void setReviseTime(Date reviseTime) {
         this.reviseTime = reviseTime;
     }
+
+    @Override
+    public String toString() {
+        return "TechnologyRequirement{" +
+                "technologyRequirementId='" + technologyRequirementId + '\'' +
+                ", technologyId='" + technologyId + '\'' +
+                ", requirement='" + requirement + '\'' +
+                ", addTime=" + addTime +
+                ", reviseTime=" + reviseTime +
+                '}';
+    }
 }

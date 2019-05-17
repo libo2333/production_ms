@@ -1,7 +1,7 @@
 package com.cskaoyan.mapper.technology;
 
-import com.cskaoyan.bean.TechnologyRequirement;
-import com.cskaoyan.bean.TechnologyRequirementExample;
+import com.cskaoyan.bean.technology.TechnologyRequirement;
+import com.cskaoyan.bean.technology.TechnologyRequirementExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

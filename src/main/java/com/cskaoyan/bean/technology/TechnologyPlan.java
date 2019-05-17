@@ -82,4 +82,18 @@ public class TechnologyPlan {
     public void setTechnologyPlanEnd(Date technologyPlanEnd) {
         this.technologyPlanEnd = technologyPlanEnd;
     }
+
+    @Override
+    public String toString() {
+        return "TechnologyPlan{" +
+                "technologyPlanId='" + technologyPlanId + '\'' +
+                ", technologyId='" + technologyId + '\'' +
+                ", batchAmount=" + batchAmount +
+                ", startPlan=" + startPlan +
+                ", endPlan=" + endPlan +
+                ", commitPlan=" + commitPlan +
+                ", technologyPlanStart=" + technologyPlanStart +
+                ", technologyPlanEnd=" + technologyPlanEnd +
+                '}';
+    }
 }
