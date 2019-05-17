@@ -1,4 +1,4 @@
-package com.cskaoyan.configration;
+package com.cskaoyan.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

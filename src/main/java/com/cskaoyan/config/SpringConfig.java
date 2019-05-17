@@ -1,4 +1,4 @@
-package com.cskaoyan.configration;
+package com.cskaoyan.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
