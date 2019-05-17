@@ -11,12 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
 
-/**
- * Created by little Stone
- * Date 2019/5/15 Time 11:39
- */
+
+
 @Configuration
 @ComponentScan(basePackages = "com.cskaoyan",
 		excludeFilters = {@ComponentScan.Filter(type = FilterType.ANNOTATION,classes = {Controller.class,EnableWebMvc.class})})

@@ -7,10 +7,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-/**
- * Created by little Stone
- * Date 2019/5/15 Time 11:39
- */
+
 @EnableWebMvc
 @ComponentScan(value = "com.cskaoyan.controller")
 public class SpringMvcConfig implements WebMvcConfigurer {

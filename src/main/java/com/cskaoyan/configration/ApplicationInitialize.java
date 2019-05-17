@@ -2,10 +2,7 @@ package com.cskaoyan.configration;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * Created by little Stone
- * Date 2019/5/15 Time 11:36
- */
+
 
 /*AACDSI*/
 public class ApplicationInitialize extends AbstractAnnotationConfigDispatcherServletInitializer {
