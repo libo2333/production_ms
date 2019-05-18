@@ -1,8 +1,8 @@
-package com.ssm.service.people.impl;
+package com.ssm.service.person.impl;
 
 import com.ssm.bean.person.Department;
 import com.ssm.mapper.person.DepartmentMapper;
-import com.ssm.service.people.DepartmentService;
+import com.ssm.service.person.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,13 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     public List<Department> selectDepartmentList() {
+        List<Department> departments = departmentMapper.selectDepartmentList();
+        System.out.println(departments);
+        return departments;
+    }
 
-        return departmentMapper.selectDepartmentList();
+    @Override
+    public List<Department> searchDepartmentListById(String id) {
+        return null;
     }
 }
