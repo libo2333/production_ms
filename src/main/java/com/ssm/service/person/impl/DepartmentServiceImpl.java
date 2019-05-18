@@ -17,12 +17,36 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public List<Department> selectDepartmentList() {
         List<Department> departments = departmentMapper.selectDepartmentList();
-        System.out.println(departments);
+        //System.out.println(departments);
         return departments;
     }
 
     @Override
     public List<Department> searchDepartmentListById(String id) {
-        return null;
+        List<Department> departments = departmentMapper.searchDepartmentListById(id);
+        return departments;
     }
+
+    @Override
+    public List<Department> searchDepartmentListByName(String name) {
+        List<Department> departments = departmentMapper.searchDepartmentListByName(name);
+        return departments;
+    }
+
+    @Override
+    public int insertDepartment(Department department) {
+        return departmentMapper.insertDepartment(department);
+    }
+
+    @Override
+    public int deleteDepartmentById(String id) {
+        return departmentMapper.deleteDepartmentById(id);
+    }
+
+    @Override
+    public int editDepartment(String departmentId, String departmentName, String note) {
+        return departmentMapper.editDepartment(departmentId,departmentName,note);
+    }
+
+
 }

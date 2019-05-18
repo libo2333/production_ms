@@ -53,7 +53,7 @@
 			<div data-options="name:'departmentId'">部门编号</div> 
 			<div data-options="name:'departmentName'">部门名称</div>
 		</div>     
-    </div>  
+    </div>
 
 </div>  
 
