@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.mapper.qualitymapper.FCountMapper">
+    <resultMap id="BaseResultMap" type="com.ssm.bean.qualitybean.F_Count">
+        <id column="f_count_check_id" jdbcType="VARCHAR" property="fCountCheckId" />
+        <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+        <result column="check_item" jdbcType="VARCHAR" property="checkItem" />
+        <result column="sample" jdbcType="INTEGER" property="sample" />
+        <result column="check_number" jdbcType="INTEGER" property="checkNumber" />
+        <result column="unqualify" jdbcType="INTEGER" property="unqualify" />
+        <result column="qualify" jdbcType="DECIMAL" property="qualify" />
+        <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+        <result column="measure_data" jdbcType="VARCHAR" property="measureData" />
+        <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+        <result column="result" jdbcType="VARCHAR" property="result" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+    </resultMap>
+
+    <select id="queryFCountList" resultMap="BaseResultMap">
+        select m.f_count_check_id,m.order_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from final_count_check m
+        left join employee d on m.emp_id = d.emp_id
+    </select>
+
+    <select id="queryFCountByCheckId" resultMap="BaseResultMap">
+        select m.f_count_check_id,m.order_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from final_count_check m
+        left join employee d on m.emp_id = d.emp_id
+        where m.f_count_check_id like CONCAT('%',#{fCountCheckId},'%')
+    </select>
+
+    <select id="queryFCountByOrderId" resultMap="BaseResultMap">
+         select m.f_count_check_id,m.order_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from final_count_check m
+        left join employee d on m.emp_id = d.emp_id
+        where m.order_id like CONCAT('%',#{orderId},'%')
+    </select>
+
+    <!--<insert id="insertUnqualify">
+    insert into unqualify_apply(unqualify_apply_id,product_id,unqualify_item,unqualify_count,assembly_date,emp_id,apply_date,note) values
+    (unqualifyApplyId,productId,unqualifyItem,unqualifyCount,assemblyDate,empId,applyDate,note)
+  </insert>&ndash;&gt;-->
+</mapper>
