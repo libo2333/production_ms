@@ -5,9 +5,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class QualityJson {
+public class QualityJson<T> {
     int total;
-    List<Unqualify> rows;
+    List<T> rows;
 
     public int getTotal() {
         return total;
@@ -17,11 +17,11 @@ public class QualityJson {
         this.total = total;
     }
 
-    public List<Unqualify> getRows() {
+    public List<T> getRows() {
         return rows;
     }
 
-    public void setRows(List<Unqualify> rows) {
+    public void setRows(List<T> rows) {
         this.rows = rows;
     }
 
