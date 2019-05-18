@@ -11,4 +11,9 @@ public interface UnqualifyMapper {
     List<Unqualify> queryUnqualityList();
 
 
+    int insertUnqualify(Unqualify unqualify);
+
+    List<Unqualify> unqualifySearchById(String searchValue);
+
+    List<Unqualify> unqualifySearchByName(String searchValue);
 }

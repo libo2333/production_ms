@@ -1,9 +1,13 @@
 package com.ssm.bean.qualitybean;
 
+import com.ssm.bean.person.Employee;
+
 import java.util.Date;
 
 public class Unqualify {
     private String unqualifyApplyId;
+
+    private String productName;
 
     private String productId;
 
@@ -13,11 +17,33 @@ public class Unqualify {
 
     private Date assemblyDate;
 
+    private String empName;
+
     private String empId;
 
     private Date applyDate;
 
     private String note;
+
+    public String getEmpId() {
+        return empId;
+    }
+
+    public void setEmpId(String empId) {
+        this.empId = empId;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 
     public String getUnqualifyApplyId() {
         return unqualifyApplyId;
@@ -27,12 +53,8 @@ public class Unqualify {
         this.unqualifyApplyId = unqualifyApplyId == null ? null : unqualifyApplyId.trim();
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId == null ? null : productId.trim();
+    public String getProductName() {
+        return productName;
     }
 
     public String getUnqualifyItem() {
@@ -59,12 +81,12 @@ public class Unqualify {
         this.assemblyDate = assemblyDate;
     }
 
-    public String getEmpId() {
-        return empId;
+    public String getEmpName() {
+        return empName;
     }
 
-    public void setEmpId(String empId) {
-        this.empId = empId == null ? null : empId.trim();
+    public void setEmpName(String empId) {
+        this.empName = empId == null ? null : empId.trim();
     }
 
     public Date getApplyDate() {
