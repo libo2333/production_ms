@@ -21,10 +21,10 @@ public class SpringConfig {
     @Bean
     public DataSource dataSource() throws PropertyVetoException {
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/production_ssm?serverTimezone=GMT&allowPublicKeyRetrieval=true");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/j13_jdbc3?serverTimezone=GMT&allowPublicKeyRetrieval=true");
         druidDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         druidDataSource.setUsername("root");
-        druidDataSource.setPassword("sql7549785");
+        druidDataSource.setPassword("123456");
         return druidDataSource;
     }
     @Bean(name = "sqlSessionFactory")

@@ -1,5 +1,6 @@
 package com.ssm.service.person.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.ssm.bean.person.Department;
 import com.ssm.mapper.person.DepartmentMapper;
 import com.ssm.service.person.DepartmentService;

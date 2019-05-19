@@ -29,6 +29,8 @@ public class Employee {
 
     private String departmentId;
 
+    private Department department;
+
     public String getEmpId() {
         return empId;
     }
@@ -131,5 +133,33 @@ public class Employee {
 
     public void setDepartmentId(String departmentId) {
         this.departmentId = departmentId == null ? null : departmentId.trim();
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public Employee(String empId, String empName, String sex, String idCode, Date birthday, Date joinDate, String status, String education, String degree, String major, String graduateSchool, String educationForm, String departmentId, Department department) {
+        this.empId = empId;
+        this.empName = empName;
+        this.sex = sex;
+        this.idCode = idCode;
+        this.birthday = birthday;
+        this.joinDate = joinDate;
+        this.status = status;
+        this.education = education;
+        this.degree = degree;
+        this.major = major;
+        this.graduateSchool = graduateSchool;
+        this.educationForm = educationForm;
+        this.departmentId = departmentId;
+        this.department = department;
+    }
+
+    public Employee() {
     }
 }
