@@ -37,4 +37,53 @@
       on e.department_id = d.department_id
   </select>
 
+    <select id="searchEmployeeListById" resultMap="BaseResultMap">
+        select
+      e.emp_id, e.emp_name, e.sex, e.id_code, e.birthday, e.join_date, e.status, e.education,
+      e.degree, e.major, e.graduate_school, e.education_form,
+      d.department_id, d.department_name, d.note
+      from employee e
+      left join department d
+      on e.department_id = d.department_id
+      where e.emp_id like CONCAT('%',#{id},'%')
+    </select>
+
+    <select id="searchEmployeeListByName" resultMap="BaseResultMap">
+        select
+      e.emp_id, e.emp_name, e.sex, e.id_code, e.birthday, e.join_date, e.status, e.education,
+      e.degree, e.major, e.graduate_school, e.education_form,
+      d.department_id, d.department_name, d.note
+      from employee e
+      left join department d
+      on e.department_id = d.department_id
+      where e.emp_name like CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="searchEmployeeListByDepartmentName" resultMap="BaseResultMap">
+        select
+      e.emp_id, e.emp_name, e.sex, e.id_code, e.birthday, e.join_date, e.status, e.education,
+      e.degree, e.major, e.graduate_school, e.education_form,
+      d.department_id, d.department_name, d.note
+      from employee e
+      left join department d
+      on e.department_id = d.department_id
+      where d.department_name like CONCAT('%',#{name},'%')
+    </select>
+
+    <insert id="insertEmployee">
+        insert into employee (emp_id, emp_name, sex, id_code, birthday, join_date, status, education, degree, major,
+    graduate_school, education_form, department_id) values (#{empId},#{empName},#{sex},#{idCode},#{birthday}
+    ,#{joinDate},#{status},#{education},#{degree},#{major},#{graduateSchool},#{educationForm},#{departmentId})
+    </insert>
+
+    <delete id="deleteEmployeeById">
+        delete from employee where emp_id = #{ids}
+    </delete>
+
+    <update id="editEmployee">
+        update employee set  emp_name=#{empName}, sex=#{sex}, id_code=#{idCode},birthday=#{birthday},
+        join_date=#{joinDate}, status=#{status},education=#{education}, degree=#{degree}, major=#{major},
+        graduate_school=#{graduateSchool}, education_form=#{educationForm}, department_id=#{departmentId}
+        where emp_id = #{empId}
+    </update>
 </mapper>

@@ -30,4 +30,8 @@
   <update id="editDepartment">
       update department set department_name = #{param2} ,note=#{param3} where department_id = #{param1}
   </update>
+
+    <update id="updateNoteById">
+      update department set note = #{param2} where department_id = #{param1}
+    </update>
 </mapper>

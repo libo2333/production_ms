@@ -7,6 +7,7 @@ import com.ssm.service.person.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -72,9 +73,16 @@ public class DepartmentController {
     @ResponseBody
     public QueryStatus department7(String departmentId, String departmentName, String note){
         Department department = new Department(departmentId, departmentName, note);
-        departmentService.insertDepartment(department);
-        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
-        return queryStatus;
+        List<Department> departments = departmentService.searchDepartmentListById(departmentId);
+        //重复则提示该部门已存在
+        if(departments == null){
+            departmentService.insertDepartment(department);
+            QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+            return queryStatus;
+        }else{
+            return new QueryStatus(100,"该部门已存在","1");
+        }
+
     }
 
     /*删除功能*/
@@ -116,5 +124,14 @@ public class DepartmentController {
     public List<Department> department13(){
         List<Department> departments = departmentService.selectDepartmentList();
         return departments;
+    }
+
+    /*update_note*/
+    @RequestMapping("department/update_note")
+    @ResponseBody
+    public QueryStatus department14(String departmentId,String note){
+        departmentService.updateNoteById(departmentId,note);
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
     }
 }

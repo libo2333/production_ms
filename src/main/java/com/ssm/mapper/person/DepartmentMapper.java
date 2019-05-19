@@ -18,4 +18,6 @@ public interface DepartmentMapper {
     int deleteDepartmentById(String id);
 
     int editDepartment(String departmentId,String departmentName,String note);
+
+    void updateNoteById(String departmentId, String note);
 }

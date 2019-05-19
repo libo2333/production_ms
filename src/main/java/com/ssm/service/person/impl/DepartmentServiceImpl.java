@@ -49,5 +49,10 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentMapper.editDepartment(departmentId,departmentName,note);
     }
 
+    @Override
+    public void updateNoteById(String departmentId, String note) {
+        departmentMapper.updateNoteById(departmentId,note);
+    }
+
 
 }
