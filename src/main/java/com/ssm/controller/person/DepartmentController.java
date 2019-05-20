@@ -95,7 +95,10 @@ public class DepartmentController {
     @RequestMapping("department/delete_batch")
     @ResponseBody
     public QueryStatus department9(String ids){
-        departmentService.deleteDepartmentById(ids);
+        String[] split = ids.split(",");
+        for (int i = 0; i < split.length; i++) {
+            departmentService.deleteDepartmentById(split[i]);
+        }
         QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
         return queryStatus;
     }
