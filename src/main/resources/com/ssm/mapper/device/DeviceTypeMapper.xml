@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mapper.device.DeivceTypeMapper">
+<!--查询-->
+    <sql id="QueryAllSqL">
+    SELECT
+	device_type_id,
+	device_type_name,
+	device_type_model,
+		device_type_spec,
+		device_type_supplier,
+		device_type_producer,
+		device_type_quantity,
+		device_type_warranty
+    FROM
+	device_type
+</sql>
+    <!--封装-->
+    <resultMap id="queryAllMap" type="selectType">
+        <id property="deviceTypeId" column="device_type_id"/>
+        <result property="deviceTypeName" column="device_type_name"/>
+        <result property="deviceTypeModel" column="device_type_model"/>
+        <result property="deviceTypeSpec" column="device_type_spec"/>
+        <result property="deviceTypeSupplier" column="device_type_supplier"/>
+        <result property="deviceTypeProducer" column="device_type_producer"/>
+        <result property="deviceTypeQuantity" column="device_type_quantity"/>
+        <result property="deviceTypeWarranty" column="device_type_warranty"/>
+    </resultMap>
+    <select id="queryAll" resultMap="queryAllMap">
+        <include refid="QueryAllSqL"/>
+    </select>
+    <!--设备种类编号,模糊-->
+    <select id="queryByDeviceTypeId">
+        <include refid="QueryAllSqL"/>
+        where device_type_id=#%{typeId}%
+    </select>
+    <!--设备种类名称,模糊-->
+    <select id="queryByDeviceTypeName">
+        <include refid="QueryAllSqL"/>
+        where device_type_name=#%{typename}%
+    </select>
+    <select id="queryJudge">
+        <include refid="QueryAllSqL"/>
+        where device_type_id=#{id};
+    </select>
+
+    <insert id="insert">
+      INSERT INTO ( device_type_id,
+      device_type_name,
+      device_type_model,
+      device_type_spec,
+      device_type_supplier,
+       device_type_producer,
+        device_type_quantity,
+         device_type_warranty )
+      VALUES
+	( deviceTypeId, deviceTypeName,
+	deviceTypeModel, deviceTypeSpec,
+	deviceTypeSupplier, deviceTypeProducer,
+	deviceTypeQuantity, deviceTypeWarranty );
+    </insert>
+    <update id="updateByDeviceType">
+      UPDATE device_type
+      SET device_type_id=#{deviceTypeId},
+        device_type_name=#{deviceTypeName},
+        device_type_model=#{deviceTypeModel},
+        device_type_spec=#{deviceTypeSpec},
+        device_type_supplier=#{deviceTypeSupplier},
+        device_type_producer=#{deviceTypeProducer},
+        device_type_quantity=#{deviceTypeQuantity},
+        device_type_warranty=#{deviceTypeWarranty}
+    </update>
+    <delete id="">
+        delete from device_type where device_type_id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mapper.device.DeivceCheckMapper">
+<sql id="queryAllSql">
+    SELECT
+	a.device_check_id,
+	a.device_check_date,
+	a.device_check_emp_id,
+	a.device_check_result,
+	a.device_check_fault_id,
+	b.device_id,
+	b.device_name,
+	c.emp_name
+FROM
+	device_check a
+	LEFT JOIN device b ON a.device_id = b.device_id
+	LEFT JOIN employee c on c.emp_id = a.device_check_emp_id;
+</sql>
+    <!--封装-->
+    <resultMap id="queryAllMap" type="deviceCheck">
+        <id column="device_check_id" property="deviceCheckId"/>
+        <result column="device_id" property="deviceId"/>
+        <result column="device_name" property="deviceName"/>
+        <result column="device_check_emp_id" property="deviceCheckEmpId"/>
+        <result column="emp_name" property="deviceCheckEmp"/>
+        <result column="device_check_date" property="deviceCheckDate"/>
+        <result column="device_check_result" property="deviceCheckResult"/>
+        <result column="device_check_fault_id" property="deviceCheckFaultId"/>
+    </resultMap>
+    <!--查询全部-->
+    <select id="queryAll" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+    </select>
+    <!--设备例检编号查例检设备--><!--可以供插入修冷冷删除复用,判断是否存在-->
+    <select id="queryByCheckId" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+        where a.device_check_id=#{id};
+    </select>
+    <!--设备名称查例检设备-->
+    <select id="queryByDeviceName" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+        where b.device_name=#{name};
+    </select>
+    <insert id="insert">
+      insert into device_check
+	  (device_check_id,
+	    device_check_date,
+	    device_check_emp_id,
+	    device_check_result,
+	    device_check_fault_id,
+	    device_id,
+      )VALUES(deviceCheckId,deviceCheckDate,
+	deviceCheckEmpId,deviceCheckResult,
+	deviceCheckFaultId,deviceId)
+
+    </insert>
+    <delete id="deleteByPrimaryKey">
+        delete from device_check where device_check_id=#{id};
+    </delete>
+    <update id="updateByPrimaryKey">
+      UPDATE device_check
+      SET device_check_id=deviceCheckId,
+      device_check_date=deviceCheckDate,
+      device_check_emp_id=deviceCheckEmpId,
+      device_check_result=deviceCheckResult,
+      device_check_fault_id=deviceCheckFaultId,
+      device_id=deviceId
+
+    </update>
+
+</mapper>
