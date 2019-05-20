@@ -1,10 +1,10 @@
-package com.ssm.mapper.person;
+package com.ssm.service.person;
 
 import com.ssm.bean.person.Employee;
 
 import java.util.List;
 
-public interface EmployeeMapper {
+public interface EmployeeService {
     List<Employee> selectEmployeeList();
 
     List<Employee> searchEmployeeListById(String id);

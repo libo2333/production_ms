@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ResponseVo<T> {
     List<T> rows;
-    int total;
+    long total;
 
     public List<T> getRows() {
         return rows;
@@ -14,11 +14,11 @@ public class ResponseVo<T> {
         this.rows = rows;
     }
 
-    public int getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(long total) {
         this.total = total;
     }
 

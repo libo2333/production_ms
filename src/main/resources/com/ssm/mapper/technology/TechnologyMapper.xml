@@ -19,14 +19,15 @@
     overtime_overfulfil_capacity, double_capacity, overfulfil_capacity from technology
     </select>
     <insert id="insertTechnology">
-        insert insert into technology (technology_id, technology_name, price,
+
+      insert  into technology (technology_id, technology_name, price,
       vital_process_period, standard_capacity, overtime_standard_capacity,
       overtime_overfulfil_capacity, double_capacity,
       overfulfil_capacity)
-    values (#{technologyId,jdbcType=VARCHAR}, #{technologyName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL},
-      #{vitalProcessPeriod,jdbcType=VARCHAR}, #{standardCapacity,jdbcType=INTEGER}, #{overtimeStandardCapacity,jdbcType=INTEGER},
-      #{overtimeOverfulfilCapacity,jdbcType=INTEGER}, #{doubleCapacity,jdbcType=INTEGER},
-      #{overfulfilCapacity,jdbcType=INTEGER})
+    values (#{technology.technologyId}, #{technology.technologyName}, #{technology.price},
+      #{technology.vitalProcessPeriod}, #{technology.standardCapacity}, #{technology.overtimeStandardCapacity},
+      #{technology.overtimeOverfulfilCapacity}, #{technology.doubleCapacity},
+      #{technology.overfulfilCapacity})
     </insert>
 
 </mapper>

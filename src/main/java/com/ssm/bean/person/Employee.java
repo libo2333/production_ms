@@ -11,9 +11,9 @@ public class Employee {
 
     private String idCode;
 
-    private Date birthday;
+    private String birthday;
 
-    private Date joinDate;
+    private String joinDate;
 
     private String status;
 
@@ -29,12 +29,34 @@ public class Employee {
 
     private String departmentId;
 
+    private Department department;
+
+    public Employee(String empId, String empName, String sex, String idCode, String birthday, String joinDate, String status, String education, String degree, String major, String graduateSchool, String educationForm, String departmentId, Department department) {
+        this.empId = empId;
+        this.empName = empName;
+        this.sex = sex;
+        this.idCode = idCode;
+        this.birthday = birthday;
+        this.joinDate = joinDate;
+        this.status = status;
+        this.education = education;
+        this.degree = degree;
+        this.major = major;
+        this.graduateSchool = graduateSchool;
+        this.educationForm = educationForm;
+        this.departmentId = departmentId;
+        this.department = department;
+    }
+
+    public Employee() {
+    }
+
     public String getEmpId() {
         return empId;
     }
 
     public void setEmpId(String empId) {
-        this.empId = empId == null ? null : empId.trim();
+        this.empId = empId;
     }
 
     public String getEmpName() {
@@ -42,7 +64,7 @@ public class Employee {
     }
 
     public void setEmpName(String empName) {
-        this.empName = empName == null ? null : empName.trim();
+        this.empName = empName;
     }
 
     public String getSex() {
@@ -50,7 +72,7 @@ public class Employee {
     }
 
     public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
+        this.sex = sex;
     }
 
     public String getIdCode() {
@@ -58,22 +80,22 @@ public class Employee {
     }
 
     public void setIdCode(String idCode) {
-        this.idCode = idCode == null ? null : idCode.trim();
+        this.idCode = idCode;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public Date getJoinDate() {
+    public String getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(Date joinDate) {
+    public void setJoinDate(String joinDate) {
         this.joinDate = joinDate;
     }
 
@@ -82,7 +104,7 @@ public class Employee {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
     public String getEducation() {
@@ -90,7 +112,7 @@ public class Employee {
     }
 
     public void setEducation(String education) {
-        this.education = education == null ? null : education.trim();
+        this.education = education;
     }
 
     public String getDegree() {
@@ -98,7 +120,7 @@ public class Employee {
     }
 
     public void setDegree(String degree) {
-        this.degree = degree == null ? null : degree.trim();
+        this.degree = degree;
     }
 
     public String getMajor() {
@@ -106,7 +128,7 @@ public class Employee {
     }
 
     public void setMajor(String major) {
-        this.major = major == null ? null : major.trim();
+        this.major = major;
     }
 
     public String getGraduateSchool() {
@@ -114,7 +136,7 @@ public class Employee {
     }
 
     public void setGraduateSchool(String graduateSchool) {
-        this.graduateSchool = graduateSchool == null ? null : graduateSchool.trim();
+        this.graduateSchool = graduateSchool;
     }
 
     public String getEducationForm() {
@@ -122,7 +144,7 @@ public class Employee {
     }
 
     public void setEducationForm(String educationForm) {
-        this.educationForm = educationForm == null ? null : educationForm.trim();
+        this.educationForm = educationForm;
     }
 
     public String getDepartmentId() {
@@ -130,6 +152,34 @@ public class Employee {
     }
 
     public void setDepartmentId(String departmentId) {
-        this.departmentId = departmentId == null ? null : departmentId.trim();
+        this.departmentId = departmentId;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "empId='" + empId + '\'' +
+                ", empName='" + empName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", idCode='" + idCode + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", joinDate='" + joinDate + '\'' +
+                ", status='" + status + '\'' +
+                ", education='" + education + '\'' +
+                ", degree='" + degree + '\'' +
+                ", major='" + major + '\'' +
+                ", graduateSchool='" + graduateSchool + '\'' +
+                ", educationForm='" + educationForm + '\'' +
+                ", departmentId='" + departmentId + '\'' +
+                ", department=" + department +
+                '}';
     }
 }

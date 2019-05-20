@@ -1,5 +1,6 @@
 package com.ssm.controller.technology;
 
+import com.github.pagehelper.PageInfo;
 import com.ssm.bean.QueryStatus;
 import com.ssm.bean.technology.ResponseVo;
 
@@ -24,9 +25,9 @@ public class TechnologyController {
 
     @RequestMapping("technology/list")
     @ResponseBody
-    public ResponseVo technology(Integer page,Integer rows){
+    public ResponseVo<Technology> technology(Integer page, Integer rows){
 
-        ResponseVo responseVo = technologyService.requireResponseVo(page,rows);
+        ResponseVo<Technology> responseVo = technologyService.requireResponseVo(page,rows);
         return responseVo;
 
     }
@@ -43,6 +44,7 @@ public class TechnologyController {
         return "technology_add";
     }
     @RequestMapping("technology/insert")
+    @ResponseBody
     public QueryStatus technology4(Technology technology){
         QueryStatus queryStatus =  technologyService.insertTechnology(technology);
         return queryStatus;

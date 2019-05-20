@@ -1,11 +1,13 @@
 package com.ssm.controller.person;
 
+import com.ssm.bean.QueryStatus;
 import com.ssm.bean.person.Department;
 import com.ssm.bean.person.DepartmentJson;
 import com.ssm.service.person.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,11 +25,11 @@ public class DepartmentController {
     /*List*/
     @RequestMapping("department/list")
     @ResponseBody
-    public DepartmentJson Department1(){
+    public DepartmentJson Department1(int page, int rows){
         List<Department> departments = departmentService.selectDepartmentList();
-       // System.out.println(departments);
+        List<Department> departments1 = departments.subList((page-1) * rows, ((page) * rows)>=departments.size()?departments.size():((page)*rows));
         departmentJson.setTotal(departments.size());
-        departmentJson.setRows(departments);
+        departmentJson.setRows(departments1);
         return departmentJson;
     }
 
@@ -68,11 +70,19 @@ public class DepartmentController {
     }
 
     @RequestMapping("department/insert")
-    //@ResponseBody
-    public String department7(String departmentId,String departmentName,String note){
+    @ResponseBody
+    public QueryStatus department7(String departmentId, String departmentName, String note){
         Department department = new Department(departmentId, departmentName, note);
-        departmentService.insertDepartment(department);
-        return "department_list";
+        List<Department> departments = departmentService.searchDepartmentListById(departmentId);
+        //重复则提示该部门已存在
+        if(departments.size() == 0){
+            departmentService.insertDepartment(department);
+            QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+            return queryStatus;
+        }else{
+            return new QueryStatus(100,"该部门已存在","1");
+        }
+
     }
 
     /*删除功能*/
@@ -82,10 +92,11 @@ public class DepartmentController {
     }
 
     @RequestMapping("department/delete_batch")
-    //@ResponseBody
-    public String department9(String ids){
+    @ResponseBody
+    public QueryStatus department9(String ids){
         departmentService.deleteDepartmentById(ids);
-        return "department_list";
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
     }
 
     /*编辑功能*/
@@ -100,8 +111,27 @@ public class DepartmentController {
     }
 
     @RequestMapping("department/update_all")
-    public String department12(String departmentId,String departmentName,String note){
+    @ResponseBody
+    public QueryStatus department12(String departmentId,String departmentName,String note){
         departmentService.editDepartment(departmentId,departmentName,note);
-        return "department_list";
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
+    }
+
+    /*get_data*/
+    @RequestMapping("department/get_data")
+    @ResponseBody
+    public List<Department> department13(){
+        List<Department> departments = departmentService.selectDepartmentList();
+        return departments;
+    }
+
+    /*update_note*/
+    @RequestMapping("department/update_note")
+    @ResponseBody
+    public QueryStatus department14(String departmentId,String note){
+        departmentService.updateNoteById(departmentId,note);
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
     }
 }

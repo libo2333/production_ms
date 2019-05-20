@@ -1,5 +1,6 @@
 package com.ssm.service.person.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.ssm.bean.person.Department;
 import com.ssm.mapper.person.DepartmentMapper;
 import com.ssm.service.person.DepartmentService;
@@ -46,6 +47,11 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public int editDepartment(String departmentId, String departmentName, String note) {
         return departmentMapper.editDepartment(departmentId,departmentName,note);
+    }
+
+    @Override
+    public void updateNoteById(String departmentId, String note) {
+        departmentMapper.updateNoteById(departmentId,note);
     }
 
 
