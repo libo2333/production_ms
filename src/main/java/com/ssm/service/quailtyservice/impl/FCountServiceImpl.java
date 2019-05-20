@@ -31,4 +31,22 @@ public class FCountServiceImpl implements FCountService {
         List<F_Count> fCountList = fCountMapper.queryFCountByOrderId(searchValue);
         return fCountList;
     }
+
+    @Override
+    public int deleteFCount(String[] ids) {
+        int ret = fCountMapper.deleteFCount(ids);
+        return ret;
+    }
+
+    @Override
+    public int upadteFcount(F_Count fCount) {
+        int ret = fCountMapper.upadteFcount(fCount);
+        return ret;
+    }
+
+    @Override
+    public int insertFCount(F_Count fCount) {
+        int ret = fCountMapper.insertFCount(fCount);
+        return ret;
+    }
 }

@@ -19,6 +19,8 @@ public class P_Measure {
 
     private String note;
 
+    private String empName;
+
     public String getpMeasureCheckId() {
         return pMeasureCheckId;
     }
@@ -81,5 +83,13 @@ public class P_Measure {
 
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
+    }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public void setEmpName(String empName) {
+        this.empName = empName;
     }
 }

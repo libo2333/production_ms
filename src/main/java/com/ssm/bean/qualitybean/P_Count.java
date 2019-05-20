@@ -28,6 +28,8 @@ public class P_Count {
 
     private String note;
 
+    String empName;
+
     public String getpCountCheckId() {
         return pCountCheckId;
     }
@@ -123,4 +125,13 @@ public class P_Count {
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
     }
+
+    public String getEmpName() {
+        return empName;
+    }
+
+    public void setEmpName(String empName) {
+        this.empName = empName;
+    }
+
 }

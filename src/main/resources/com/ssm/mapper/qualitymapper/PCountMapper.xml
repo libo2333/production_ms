@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.mapper.qualitymapper.PCountMapper">
+    <resultMap id="BaseResultMap" type="com.ssm.bean.qualitybean.P_Count">
+        <id column="p_count_check_id" jdbcType="VARCHAR" property="pCountCheckId" />
+        <result column="process_id" jdbcType="VARCHAR" property="processId" />
+        <result column="check_item" jdbcType="VARCHAR" property="checkItem" />
+        <result column="sample" jdbcType="INTEGER" property="sample" />
+        <result column="check_number" jdbcType="INTEGER" property="checkNumber" />
+        <result column="unqualify" jdbcType="INTEGER" property="unqualify" />
+        <result column="qualify" jdbcType="DECIMAL" property="qualify" />
+        <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+        <result column="measure_data" jdbcType="VARCHAR" property="measureData" />
+        <result column="emp_name" jdbcType="VARCHAR" property="empName" />
+        <result column="result" jdbcType="VARCHAR" property="result" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+    </resultMap>
+
+    <select id="queryPCountList" resultMap="BaseResultMap">
+        select m.p_count_check_id,m.process_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from process_count_check m
+        left join employee d on m.emp_id = d.emp_id
+    </select>
+
+    <select id="queryPCountByCheckId" resultMap="BaseResultMap">
+        select m.p_count_check_id,m.process_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from process_count_check m
+        left join employee d on m.emp_id = d.emp_id
+        where m.p_count_check_id like CONCAT('%',#{pCountCheckId},'%')
+    </select>
+
+    <select id="queryPCountByOrderId" resultMap="BaseResultMap">
+         select m.p_count_check_id,m.process_id,m.check_item,m.sample,m.check_number,m.unqualify,m.qualify,m.cdate,m.measure_data,d.emp_name,m.result,m.note from process_count_check m
+        left join employee d on m.emp_id = d.emp_id
+        where m.process_id like CONCAT('%',#{processId},'%')
+    </select>
+
+    <delete id="deletePCount">
+        delete from process_count_check where p_count_check_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="upadtePCount">
+     update process_count_check set process_id = #{processId},
+                                   check_item = #{checkItem},
+                                   sample = #{sample},
+                                   check_number = #{checkNumber},
+                                   unqualify = #{unqualify},
+                                   qualify = #{qualify},
+                                   cdate = #{cdate},
+                                   measure_data = #{measureData},
+                                   emp_id = #{empId},
+                                   result = #{result},
+                                   note = #{note}
+
+                                   where p_count_check_id = #{pCountCheckId}
+  </update>
+    <insert id="insertPCount">
+    insert into process_count_check(p_count_check_id,process_id,check_item,sample,check_number,unqualify,qualify,cdate,measure_data,emp_id,result,note) values
+   (#{pCountCheckId},
+        #{processId},#{checkItem},#{sample},
+        #{checkNumber},#{unqualify},#{qualify},
+        #{cdate},#{measureData},#{empId},#{result},#{note})
+  </insert>
+</mapper>

@@ -32,4 +32,22 @@ public class MeasureServiceImpl implements MeasureService {
         return measureList;
     }
 
+    @Override
+    public int deleteMeasures(String[] ids) {
+        int ret = measureMapper.deleteMeasures(ids);
+        return ret;
+    }
+
+    @Override
+    public int upadteMeasure(F_Measure fMeasure) {
+        int ret = measureMapper.upadteMeasure(fMeasure);
+        return ret;
+    }
+
+    @Override
+    public int insert(F_Measure fMeasure) {
+        int ret = measureMapper.insertMeasure(fMeasure);
+        return ret;
+    }
+
 }
