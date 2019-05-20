@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.mapper.materia.Material_consumeMapper">
+<mapper namespace="com.ssm.mapper.material.Material_consumeMapper">
   <resultMap id="BaseResultMap" type="com.ssm.bean.material.Material_consume">
     <id column="consume_id" jdbcType="VARCHAR" property="consumeId" />
     <result column="work_id" jdbcType="VARCHAR" property="workId" />

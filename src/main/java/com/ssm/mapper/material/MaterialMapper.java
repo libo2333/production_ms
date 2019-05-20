@@ -13,4 +13,11 @@ public interface MaterialMapper {
     List<Material> searchMaterialListByName(String name);
 
     void insertMaterial(Material material);
+
+    void deleteMaterialById(String id);
+
+
+    void editMaterial(Material material);
+
+    void updateNoteById(String materialId, String note);
 }

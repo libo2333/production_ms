@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.mapper.materia.Material_receiveMapper">
+<mapper namespace="com.ssm.mapper.material.Material_receiveMapper">
   <resultMap id="BaseResultMap" type="com.ssm.bean.material.Material_receive">
     <id column="receive_id" jdbcType="VARCHAR" property="receiveId" />
+         <!-- <association property="material" javaType="com.ssm.bean.material.Material">
+            <result column="department_id" jdbcType="VARCHAR" property="departmentId" />
+          </association>-->
     <result column="material_id" jdbcType="VARCHAR" property="materialId" />
     <result column="amount" jdbcType="INTEGER" property="amount" />
     <result column="receive_date" jdbcType="TIMESTAMP" property="receiveDate" />
     <result column="sender" jdbcType="VARCHAR" property="sender" />
     <result column="receiver" jdbcType="VARCHAR" property="receiver" />
     <result column="note" jdbcType="VARCHAR" property="note" />
+    <association property="material" javaType="com.ssm.bean.material.Material">
+        <result column="material_id" jdbcType="VARCHAR" property="materialId" />
+        <result column="work_id" jdbcType="VARCHAR" property="workId"/>
+        <result column="material_type" jdbcType="VARCHAR" property="materialType" />
+        <result column="status" jdbcType="VARCHAR" property="status" />
+        <result column="remaining" jdbcType="INTEGER" property="remaining" />
+        <result column="note" jdbcType="VARCHAR" property="note" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List">
     receive_id, material_id, amount, receive_date, sender, receiver, note
   </sql>
+
+  <select id="selectMaterialReceiveList" resultMap="BaseResultMap">
+      select
+      mr.receive_id, m.material_id, mc.work_id, m.material_type, m.status, m.remaining, m.note,
+      mr.amount, mr.receive_date, mr.sender, mr.receiver, mr.note
+      from  material m
+      left join material_receive mr on m.material_id = mr.material_id
+      left join material_consume mc on m.material_id = mc.material_id
+  </select>
+
+  <select id="searchMaterialReceiveListById" resultMap="BaseResultMap">
+      select
+      mr.receive_id, m.material_id, mc.work_id, m.material_type, m.status, m.remaining, m.note,
+      mr.amount, mr.receive_date, mr.sender, mr.receiver, mr.note
+      from  material m
+      left join material_receive mr on m.material_id = mr.material_id
+      left join material_consume mc on m.material_id = mc.material_id
+      where mr.receive_id like CONCAT('%',#{id},'%')
+  </select>
+
+  <select id="searchMaterialReceiveListById2" resultMap="BaseResultMap">
+       select
+      mr.receive_id, m.material_id, mc.work_id, m.material_type, m.status, m.remaining, m.note,
+      mr.amount, mr.receive_date, mr.sender, mr.receiver, mr.note
+      from  material m
+      left join material_receive mr on m.material_id = mr.material_id
+      left join material_consume mc on m.material_id = mc.material_id
+      where m.material_id like CONCAT('%',#{id},'%')
+  </select>
+
+  <insert id="insertMaterialReceive">
+    insert into material_receive
+    (receive_id, material_id, amount, receive_date, sender, receiver, note)
+    values(#{receiveId},#{materialId},#{amount},#{receiveDate},#{sender},#{receiver},#{note})
+  </insert>
 
 </mapper>

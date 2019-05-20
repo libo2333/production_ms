@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.technology.TechnologyMapper">
+    <resultMap id="technologyMap" type="technology">
+        <result column="technology_id" property="technologyId"/>
+        <result property="technologyName" column="technology_name"/>
+        <result column="price" property="price"/>
+        <result property="vitalProcessPeriod" column="vital_process_period"/>
+        <result column="standard_capacity" property="standardCapacity"/>
+        <result property="overtimeStandardCapacity" column="overtime_standard_capacity"/>
+        <result column="overtime_overfulfil_capacity" property="overtimeOverfulfilCapacity"/>
+        <result property="doubleCapacity" column="double_capacity"/>
+        <result column="overfulfil_capacity" property="overfulfilCapacity"/>
+    </resultMap>
+    <select id="queryTechnologies" resultMap="technologyMap">
+        select technology_id, technology_name, price, vital_process_period, standard_capacity, overtime_standard_capacity,
+    overtime_overfulfil_capacity, double_capacity, overfulfil_capacity from technology
+    </select>
+    <insert id="insertTechnology">
+
+      insert  into technology (technology_id, technology_name, price,
+      vital_process_period, standard_capacity, overtime_standard_capacity,
+      overtime_overfulfil_capacity, double_capacity,
+      overfulfil_capacity)
+    values (#{technology.technologyId}, #{technology.technologyName}, #{technology.price},
+      #{technology.vitalProcessPeriod}, #{technology.standardCapacity}, #{technology.overtimeStandardCapacity},
+      #{technology.overtimeOverfulfilCapacity}, #{technology.doubleCapacity},
+      #{technology.overfulfilCapacity})
+    </insert>
+
+</mapper>

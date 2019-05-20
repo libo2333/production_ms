@@ -34,4 +34,19 @@ public class MaterialServiceImpl implements MaterialService {
     public void insertMaterial(Material material) {
         materialMapper.insertMaterial(material);
     }
+
+    @Override
+    public void deleteMaterialById(String id) {
+        materialMapper.deleteMaterialById(id);
+    }
+
+    @Override
+    public void editMaterial(Material material) {
+        materialMapper.editMaterial(material);
+    }
+
+    @Override
+    public void updateNoteById(String materialId, String note) {
+        materialMapper.updateNoteById(materialId,note);
+    }
 }

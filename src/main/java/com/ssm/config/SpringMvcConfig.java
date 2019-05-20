@@ -7,14 +7,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-/**
- * 〈一句话功能简述〉<br>
- * 〈〉
- *
- * @author Ruimingz
- * @create 2019/5/15
- * @since 1.0.0
- */
+
 @EnableWebMvc
 @ComponentScan(basePackages = "com.ssm.controller")
 public class SpringMvcConfig extends WebMvcConfigurationSupport {

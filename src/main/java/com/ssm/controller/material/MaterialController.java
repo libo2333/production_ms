@@ -4,6 +4,7 @@ import com.ssm.bean.QueryStatus;
 import com.ssm.bean.material.Material;
 import com.ssm.bean.material.MaterialJson;
 import com.ssm.service.material.MaterialService;
+import com.ssm.service.person.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,6 @@ public class MaterialController {
         return materialJson;
     }
 
-    /*搜索功能*/
     /*搜索功能*/
     @RequestMapping("search_material_by_materialId")
     @ResponseBody
@@ -85,5 +85,54 @@ public class MaterialController {
     }
 
     /*删除功能*/
+    @RequestMapping("delete_judge")
+    @ResponseBody
+    public String material8(){
+        return "material_list";
+    }
+
+    @RequestMapping("delete_batch")
+    @ResponseBody
+    public QueryStatus material9(String ids){
+        materialService.deleteMaterialById(ids);
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
+    }
+
+    /*编辑功能*/
+    @RequestMapping("edit_judge")
+    public String material10(){
+        return "material_edit";
+    }
+
+    @RequestMapping("edit")
+    public String material11(){
+        return "material_edit";
+    }
+
+    @RequestMapping("update_all")
+    @ResponseBody
+    public QueryStatus material12(Material material){
+        materialService.editMaterial(material);
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
+    }
+
+    /*update_note*/
+    @RequestMapping("update_note")
+    @ResponseBody
+    public QueryStatus material13(String materialId,String note){
+        materialService.updateNoteById(materialId,note);
+        QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
+        return queryStatus;
+    }
+
+    /*get_data*/
+    @RequestMapping("get_data")
+    @ResponseBody
+    public List<Material> material14(){
+        List<Material> materials = materialService.selectMaterialList();
+        return materials;
+    }
 
 }
