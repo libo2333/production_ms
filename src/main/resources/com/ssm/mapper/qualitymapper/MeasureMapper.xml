@@ -28,8 +28,29 @@
         left join employee d on m.emp_id = d.emp_id where m.f_measure_check_id like CONCAT('%',#{fMeasureCheckId},'%')
     </select>
 
-    <!--<insert id="insertUnqualify">
-    insert into unqualify_apply(unqualify_apply_id,product_id,unqualify_item,unqualify_count,assembly_date,emp_id,apply_date,note) values
-    (unqualifyApplyId,productId,unqualifyItem,unqualifyCount,assemblyDate,empId,applyDate,note)
-  </insert>&ndash;&gt;-->
+    <delete id="deleteMeasures">
+        delete from final_measuret_check where f_measure_check_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="upadteMeasure">
+     update final_measuret_check set order_id = #{orderId},
+                                   check_item = #{checkItem},
+                                   cdate = #{cdate},
+                                   measure_data = #{measureData},
+                                   emp_id = #{empId},
+                                   result = #{result},
+                                   note = #{note}
+
+                                   where f_measure_check_id = #{fMeasureCheckId}
+  </update>
+    <insert id="insertMeasure">
+    insert into final_measuret_check(f_measure_check_id,order_id,check_item,cdate,measure_data,emp_id,result,note) values
+   (#{fMeasureCheckId},
+        #{orderId},#{checkItem},#{cdate},
+        #{measureData},#{empId},#{result},
+        #{note})
+  </insert>
 </mapper>

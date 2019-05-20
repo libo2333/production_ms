@@ -34,8 +34,34 @@
         where m.order_id like CONCAT('%',#{orderId},'%')
     </select>
 
-    <!--<insert id="insertUnqualify">
-    insert into unqualify_apply(unqualify_apply_id,product_id,unqualify_item,unqualify_count,assembly_date,emp_id,apply_date,note) values
-    (unqualifyApplyId,productId,unqualifyItem,unqualifyCount,assemblyDate,empId,applyDate,note)
-  </insert>&ndash;&gt;-->
+    <delete id="deleteFCount">
+        delete from final_count_check where f_count_check_id in
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="upadteFcount">
+     update final_count_check set order_id = #{orderId},
+                                   check_item = #{checkItem},
+                                   sample = #{sample},
+                                   check_number = #{checkNumber},
+                                   unqualify = #{unqualify},
+                                   qualify = #{qualify},
+                                   cdate = #{cdate},
+                                  measure_data = #{measureData},
+                                  emp_id = #{empId},
+                                  result = #{result},
+                                  note = #{note}
+
+                                   where f_count_check_id = #{fCountCheckId}
+  </update>
+
+    <insert id="insertFCount">
+    insert into final_count_check(f_count_check_id,order_id,check_item,sample,check_number,unqualify,qualify,cdate,measure_data,emp_id,result,note) values
+   (#{fCountCheckId},
+        #{orderId},#{checkItem},#{sample},
+        #{checkNumber},#{unqualify},#{qualify},
+        #{cdate},#{measureData},#{empId},#{result},#{note})
+  </insert>
 </mapper>

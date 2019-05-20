@@ -1,15 +1,23 @@
 package com.ssm.bean.device;
 
+
 import java.math.BigDecimal;
 import java.util.Date;
 
+
+import org.apache.ibatis.type.Alias;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+@Alias("device")/*小名供查询返回*/
+
 public class Device {
     private String deviceId;
-
     private String deviceName;
-
+    private String deviceIdd;
+    private String deviceTypeName;
     private String deviceTypeId;
-
     private String deviceStatusId;
 
     private String deviceStatus;
@@ -24,9 +32,9 @@ public class Device {
 
     private String deviceKeeperId;
 
+
     private String note;
 
-    private String deviceTypeName;
     private String deviceKeeper;
 
     public String getDeviceTypeName() {
@@ -61,12 +69,20 @@ public class Device {
         this.deviceName = deviceName == null ? null : deviceName.trim();
     }
 
+    public String getDeviceIdd() {
+        return deviceIdd;
+    }
+
+    public void setDeviceIdd(String deviceIdd) {
+        this.deviceIdd = deviceIdd;
+    }
+
     public String getDeviceTypeId() {
         return deviceTypeId;
     }
 
     public void setDeviceTypeId(String deviceTypeId) {
-        this.deviceTypeId = deviceTypeId == null ? null : deviceTypeId.trim();
+        this.deviceTypeId = deviceTypeId;
     }
 
     public String getDeviceStatusId() {
@@ -74,7 +90,7 @@ public class Device {
     }
 
     public void setDeviceStatusId(String deviceStatusId) {
-        this.deviceStatusId = deviceStatusId == null ? null : deviceStatusId.trim();
+        this.deviceStatusId = deviceStatusId;
     }
 
     public String getDeviceStatus() {
@@ -82,7 +98,7 @@ public class Device {
     }
 
     public void setDeviceStatus(String deviceStatus) {
-        this.deviceStatus = deviceStatus == null ? null : deviceStatus.trim();
+        this.deviceStatus = deviceStatus;
     }
 
     public Date getDevicePurchaseDate() {
@@ -122,7 +138,7 @@ public class Device {
     }
 
     public void setDeviceKeeperId(String deviceKeeperId) {
-        this.deviceKeeperId = deviceKeeperId == null ? null : deviceKeeperId.trim();
+        this.deviceKeeperId = deviceKeeperId;
     }
 
     public String getNote() {
@@ -130,6 +146,6 @@ public class Device {
     }
 
     public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
+        this.note = note;
     }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cskaoyan.mapper.device.DeivceMaintainMapper">
+    <sql id="queryAllSql">
+        select a.device_maintain_id,
+        a.device_fault_id,a.device_maintain_emp_id,
+        a.device_maintain_date,a.device_maintain_result,
+        a.device_maintain_cost,a.note,b.emp_name
+        from device_maintain a LEFT JOIN employee b
+        on a.device_maintain_emp_id=b.emp_id;
+    </sql>
+    <resultMap id="queryAllMap" type="deviceMaintain">
+        <id property="deviceMaintainId" column="device_maintain_id"/>
+        <result property="deviceFaultId" column="device_fault_id"/>
+        <result property="deviceMaintainEmpId" column="device_maintain_emp_id"/>
+        <result property="deviceMaintainDate" column="device_maintain_date"/>
+        <result property="deviceMaintainResult" column="device_maintain_result"/>
+        <result property="deviceMaintainCost" column="device_maintain_cost"/>
+        <result property="note" column="note"/>
+        <result property="deviceMaintainEmp" column="emp_name"/>
+    </resultMap>
+    <select id="queryAll" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+    </select>
+    <select id="queryByDeviceMainId" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+         where a.device_maintain_id=#{%'id'%}
+    </select>
+    <select id="queryByDeviceFaultId" resultMap="queryAllMap">
+        <include refid="queryAllSql"/>
+        where  a.device_fault_id=#{%'id'%}
+    </select>
+    <insert id="insert" >
+                      insert into device_maintain (device_maintain_id,
+            device_fault_id,device_maintain_emp_id,
+            device_maintain_date,device_maintain_result,
+            device_maintain_cost,note)
+            VALUES (deviceMaintainId,deviceFaultId,deviceMaintainEmpId,
+            deviceMaintainDate,deviceMaintainResult,deviceMaintainCost)
+    </insert>
+    <update id="updateByDeviceMaintainId">
+            update device_maintain as a set a.device_maintain_id=deviceMaintainId,
+    a.device_fault_id=deviceFaultId,a.device_maintain_emp_id=deviceMaintainEmpId,
+    a.device_maintain_date=deviceMaintainDate,a.device_maintain_result=deviceMaintainResult,
+    a.device_maintain_cost=deviceMaintainCost,a.note=note)
+    where a.device_maintain_id=#{deviceMaintainId}
+    </update>
+    <delete id="deleteByDeviceMaintainId">
+        delete from device_maintain where device_maintain_id=#{id}
+    </delete>
+
+</mapper>
