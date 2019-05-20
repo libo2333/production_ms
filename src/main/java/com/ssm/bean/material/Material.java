@@ -3,6 +3,8 @@ package com.ssm.bean.material;
 public class Material {
     private String materialId;
 
+    private String workId;
+
     private String materialType;
 
     private String status;
@@ -11,12 +13,32 @@ public class Material {
 
     private String note;
 
+    public Material(String materialId, String workId, String materialType, String status, Integer remaining, String note) {
+        this.materialId = materialId;
+        this.workId = workId;
+        this.materialType = materialType;
+        this.status = status;
+        this.remaining = remaining;
+        this.note = note;
+    }
+
+    public Material() {
+    }
+
     public String getMaterialId() {
         return materialId;
     }
 
     public void setMaterialId(String materialId) {
-        this.materialId = materialId == null ? null : materialId.trim();
+        this.materialId = materialId;
+    }
+
+    public String getWorkId() {
+        return workId;
+    }
+
+    public void setWorkId(String workId) {
+        this.workId = workId;
     }
 
     public String getMaterialType() {
@@ -24,7 +46,7 @@ public class Material {
     }
 
     public void setMaterialType(String materialType) {
-        this.materialType = materialType == null ? null : materialType.trim();
+        this.materialType = materialType;
     }
 
     public String getStatus() {
@@ -32,7 +54,7 @@ public class Material {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
     public Integer getRemaining() {
@@ -48,24 +70,14 @@ public class Material {
     }
 
     public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
-
-    public Material(String materialId, String materialType, String status, Integer remaining, String note) {
-        this.materialId = materialId;
-        this.materialType = materialType;
-        this.status = status;
-        this.remaining = remaining;
         this.note = note;
-    }
-
-    public Material() {
     }
 
     @Override
     public String toString() {
         return "Material{" +
                 "materialId='" + materialId + '\'' +
+                ", workId='" + workId + '\'' +
                 ", materialType='" + materialType + '\'' +
                 ", status='" + status + '\'' +
                 ", remaining=" + remaining +

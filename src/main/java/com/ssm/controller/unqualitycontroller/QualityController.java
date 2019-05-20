@@ -4,6 +4,7 @@ import com.ssm.bean.QueryStatus;
 import com.ssm.bean.qualitybean.QualityJson;
 import com.ssm.bean.qualitybean.Unqualify;
 import com.ssm.service.quailtyservice.UnqualityService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,9 +44,31 @@ public class QualityController {
         return "unqualify_add";
     }
 
+    @RequestMapping("unqualify/delete_judge")
+    public String unqualityDeleteJudge(){
+        return "unqualify_list";
+    }
+
+    @RequestMapping("unqualify/delete_batch")
+    @ResponseBody
+    public QueryStatus unqualityDelete(String[] ids){
+        int i = unqualityService.deleteUnqualities(ids);
+        if (i > 0) {
+            return new QueryStatus(200, "OK", null);
+        } else {
+            return new QueryStatus(404, "FAIL", "delete fail");
+        }
+    }
+
     @RequestMapping("unqualify/insert")
-    public QueryStatus unqualifyInsert(Unqualify unqualify){
-        return unqualityService.insert(unqualify);
+    @ResponseBody
+    public QueryStatus unqualifyInsert(@Param("uqualify") Unqualify unqualify){
+        int i = unqualityService.insert(unqualify);
+        if (i > 0) {
+            return new QueryStatus(200, "OK", null);
+        } else {
+            return new QueryStatus(404, "FAIL", "insert fail");
+        }
     }
 
     @RequestMapping("unqualify/search_unqualify_by_unqualifyId")
@@ -64,5 +87,26 @@ public class QualityController {
         qualityJson.setTotal(unqualifyList.size());
         qualityJson.setRows(unqualifyList);
         return qualityJson;
+    }
+
+    @RequestMapping("unqualify/edit_judge")
+    public String unqualityEditJudge(){
+        return "unqualify_edit";
+    }
+
+    @RequestMapping("unqualify/edit")
+    public String unqualityEdit(){
+        return "unqualify_edit";
+    }
+
+    @RequestMapping("unqualify/update_all")
+    @ResponseBody
+    public QueryStatus unqualityUpadteAll(Unqualify unqualify){
+        int i = unqualityService.upadteUnqualify(unqualify);
+        if (i > 0) {
+            return new QueryStatus(200, "OK", null);
+        } else {
+            return new QueryStatus(404, "FAIL", "update fail");
+        }
     }
 }

@@ -6,24 +6,16 @@ import java.util.Date;
 
 public class Unqualify {
     private String unqualifyApplyId;
-
     private String productName;
-
     private String productId;
-
     private String unqualifyItem;
-
     private Integer unqualifyCount;
-
-    private Date assemblyDate;
-
+    private String assemblyDate;
     private String empName;
-
     private String empId;
-
-    private Date applyDate;
-
+    private String applyDate;
     private String note;
+    private String unqualifyParams;
 
     public String getEmpId() {
         return empId;
@@ -73,11 +65,11 @@ public class Unqualify {
         this.unqualifyCount = unqualifyCount;
     }
 
-    public Date getAssemblyDate() {
+    public String getAssemblyDate() {
         return assemblyDate;
     }
 
-    public void setAssemblyDate(Date assemblyDate) {
+    public void setAssemblyDate(String assemblyDate) {
         this.assemblyDate = assemblyDate;
     }
 
@@ -89,11 +81,11 @@ public class Unqualify {
         this.empName = empId == null ? null : empId.trim();
     }
 
-    public Date getApplyDate() {
+    public String getApplyDate() {
         return applyDate;
     }
 
-    public void setApplyDate(Date applyDate) {
+    public void setApplyDate(String applyDate) {
         this.applyDate = applyDate;
     }
 
@@ -103,5 +95,29 @@ public class Unqualify {
 
     public void setNote(String note) {
         this.note = note == null ? null : note.trim();
+    }
+
+    public String getUnqualifyParams() {
+        return unqualifyParams;
+    }
+
+    public void setUnqualifyParams(String unqualifyParams) {
+        this.unqualifyParams = unqualifyParams;
+    }
+
+    public Unqualify(String unqualifyApplyId, String productName, String productId, String unqualifyItem, Integer unqualifyCount, String assemblyDate, String empName, String empId, String applyDate, String note) {
+        this.unqualifyApplyId = unqualifyApplyId;
+        this.productName = productName;
+        this.productId = productId;
+        this.unqualifyItem = unqualifyItem;
+        this.unqualifyCount = unqualifyCount;
+        this.assemblyDate = assemblyDate;
+        this.empName = empName;
+        this.empId = empId;
+        this.applyDate = applyDate;
+        this.note = note;
+    }
+
+    public Unqualify() {
     }
 }

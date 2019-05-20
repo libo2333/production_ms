@@ -34,4 +34,8 @@
     <update id="updateNoteById">
       update department set note = #{param2} where department_id = #{param1}
     </update>
+
+  <select id="searchDepartmentById" resultMap="BaseResultMap">
+    select department_id, department_name, note from department where department_id=#{id}
+  </select>
 </mapper>

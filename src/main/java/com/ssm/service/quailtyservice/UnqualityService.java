@@ -9,9 +9,13 @@ import java.util.List;
 public interface UnqualityService {
     List<Unqualify> queryUnqualityList();
 
-    QueryStatus insert(Unqualify unqualify);
+    int insert(Unqualify unqualify);
 
     List<Unqualify> unqualifySearchById(String searchValue);
 
     List<Unqualify> unqualifySearchByName(String searchValue);
+
+    int upadteUnqualify(Unqualify unqualify);
+
+    int deleteUnqualities(String[] ids);
 }

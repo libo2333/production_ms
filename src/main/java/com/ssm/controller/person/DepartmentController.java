@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -133,5 +134,16 @@ public class DepartmentController {
         departmentService.updateNoteById(departmentId,note);
         QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
         return queryStatus;
+    }
+
+    /*get*/
+    @RequestMapping("department/get/*")
+    @ResponseBody
+    public Department employee15(HttpServletRequest request){
+        StringBuffer requestURL = request.getRequestURL();
+        int i = requestURL.lastIndexOf("/");
+        String substring = requestURL.substring(i+1, requestURL.length());
+        Department department = departmentService.searchDepartmentById(substring);
+        return department;
     }
 }
