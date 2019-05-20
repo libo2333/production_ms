@@ -15,7 +15,9 @@ public class Material_receive {
 
     private String note;
 
-    public Material_receive(String receiveId, String materialId, Integer amount, String receiveDate, String sender, String receiver, String note) {
+    private Material material;
+
+    public Material_receive(String receiveId, String materialId, Integer amount, String receiveDate, String sender, String receiver, String note, Material material) {
         this.receiveId = receiveId;
         this.materialId = materialId;
         this.amount = amount;
@@ -23,6 +25,7 @@ public class Material_receive {
         this.sender = sender;
         this.receiver = receiver;
         this.note = note;
+        this.material = material;
     }
 
     public Material_receive() {
@@ -84,6 +87,14 @@ public class Material_receive {
         this.note = note;
     }
 
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
     @Override
     public String toString() {
         return "Material_receive{" +
@@ -94,6 +105,7 @@ public class Material_receive {
                 ", sender='" + sender + '\'' +
                 ", receiver='" + receiver + '\'' +
                 ", note='" + note + '\'' +
+                ", material=" + material +
                 '}';
     }
 }

@@ -12,4 +12,10 @@ public interface MaterialService {
     List<Material> searchMaterialListByName(String searchValue);
 
     void insertMaterial(Material material);
+
+    void deleteMaterialById(String ids);
+
+    void editMaterial(Material material);
+
+    void updateNoteById(String materialId, String note);
 }

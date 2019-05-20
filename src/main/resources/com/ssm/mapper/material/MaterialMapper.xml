@@ -28,4 +28,18 @@
     insert into material (material_id, material_type, status, remaining, note)
     values(#{materialId},#{materialType},#{status},#{remaining},#{note})
   </insert>
+
+  <delete id="deleteMaterialById">
+    delete from material where material_id = #{id}
+  </delete>
+
+  <update id="editMaterial">
+    update material set material_type=#{materialType},status=#{status},remaining=#{remaining},note=#{note}
+    where material_id=#{materialId}
+  </update>
+
+  <update id="updateNoteById">
+    update material set note=#{param2} where material_id=#{param2}
+  </update>
+
 </mapper>
