@@ -128,6 +128,13 @@ public class EmployeeController {
         return queryStatus;
     }
 
+    /*get_data*/
+    @RequestMapping("get_data")
+    @ResponseBody
+    public List<Employee> employee14(){
+        List<Employee> employees = employeeService.selectEmployeeList();
+        return employees;
+    }
 
 
 }

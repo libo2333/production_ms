@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.material.MaterialMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.bean.material.Material">
+    <id column="material_id" jdbcType="VARCHAR" property="materialId" />
+    <result column="material_type" jdbcType="VARCHAR" property="materialType" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="remaining" jdbcType="INTEGER" property="remaining" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    material_id, material_type, status, remaining, note
+  </sql>
+
+  <select id="selectMaterialList" resultMap="BaseResultMap">
+    select material_id, material_type, status, remaining, note from material
+  </select>
+
+  <select id="searchMaterialListById" resultMap="BaseResultMap">
+    select material_id, material_type, status, remaining, note from material where material_id like CONCAT('%',#{id},'%')
+  </select>
+
+  <select id="searchMaterialListByName" resultMap="BaseResultMap">
+    select material_id, material_type, status, remaining, note from material where material_type like CONCAT('%',#{name},'%')
+  </select>
+
+  <insert id="insertMaterial">
+    insert into material (material_id, material_type, status, remaining, note)
+    values(#{materialId},#{materialType},#{status},#{remaining},#{note})
+  </insert>
+</mapper>

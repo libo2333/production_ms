@@ -75,7 +75,7 @@ public class DepartmentController {
         Department department = new Department(departmentId, departmentName, note);
         List<Department> departments = departmentService.searchDepartmentListById(departmentId);
         //重复则提示该部门已存在
-        if(departments == null){
+        if(departments.size() == 0){
             departmentService.insertDepartment(department);
             QueryStatus queryStatus = new QueryStatus(200, "成功", "1");
             return queryStatus;
