@@ -2,14 +2,7 @@ package com.ssm.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-/**
- * 〈一句话功能简述〉<br>
- * 〈〉
- *
- * @author Ruimingz
- * @create 2019/5/15
- * @since 1.0.0
- */
+
 
 public class ApplicationInitialize extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
