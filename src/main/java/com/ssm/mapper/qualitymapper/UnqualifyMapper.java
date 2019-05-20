@@ -16,4 +16,8 @@ public interface UnqualifyMapper {
     List<Unqualify> unqualifySearchById(String searchValue);
 
     List<Unqualify> unqualifySearchByName(String searchValue);
+
+    int updateUnqualify(Unqualify unqualify);
+
+    int deleteUnqualities(String[] ids);
 }

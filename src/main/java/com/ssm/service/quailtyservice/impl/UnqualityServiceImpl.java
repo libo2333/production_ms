@@ -22,14 +22,9 @@ public class UnqualityServiceImpl implements UnqualityService {
     }
 
     @Override
-    public QueryStatus insert(Unqualify unqualify) {
-        QueryStatus queryStatus = new QueryStatus();
+    public int insert(Unqualify unqualify) {
         int ret = unqualifyMapper.insertUnqualify(unqualify);
-        if (ret==1){
-            queryStatus.setStatus(200);
-            queryStatus.setMsg("ok");
-        }
-        return queryStatus;
+        return ret;
     }
 
     @Override
@@ -42,5 +37,17 @@ public class UnqualityServiceImpl implements UnqualityService {
     public List<Unqualify> unqualifySearchByName(String searchValue) {
         List<Unqualify> unqualifyList = unqualifyMapper.unqualifySearchByName(searchValue);
         return unqualifyList;
+    }
+
+    @Override
+    public int upadteUnqualify(Unqualify unqualify) {
+        int ret = unqualifyMapper.updateUnqualify(unqualify);
+        return ret;
+    }
+
+    @Override
+    public int deleteUnqualities(String[] ids) {
+        int ret = unqualifyMapper.deleteUnqualities(ids);
+        return ret;
     }
 }
