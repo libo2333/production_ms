@@ -1,4 +1,4 @@
-package com.ssm.bean.qualitybean.schedule;
+package com.ssm.bean.schedule;
 
 public class Product {
     private String productId;

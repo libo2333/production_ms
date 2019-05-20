@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssm.mapper.technology.TechnologyMapper">
-    <resultMap id="technologyMap" type="technology">
+    <resultMap id="technologyMap" type="com.ssm.bean.technology.Technology">
         <result column="technology_id" property="technologyId"/>
         <result property="technologyName" column="technology_name"/>
         <result column="price" property="price"/>

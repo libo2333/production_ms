@@ -1,4 +1,4 @@
-package com.ssm.bean.qualitybean.schedule;
+package com.ssm.bean.schedule;
 
 import java.util.ArrayList;
 import java.util.List;

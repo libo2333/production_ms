@@ -26,7 +26,7 @@ public class SpringConfig {
     public DataSource dataSource() throws PropertyVetoException {
         DruidDataSource druidDataSource = new DruidDataSource();
 
-        druidDataSource.setUrl("jdbc:mysql:///production_ssm?serverTimezone=GMT&allowPublicKeyRetrieval=true");
+        druidDataSource.setUrl("jdbc:mysql:///j13_jdbc3?serverTimezone=GMT&allowPublicKeyRetrieval=true");
 
         druidDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         druidDataSource.setUsername("root");
@@ -46,7 +46,6 @@ public class SpringConfig {
         properties.put("dialect", "com.github.pagehelper.PageHelper");
         pageInterceptor.setProperties(properties);
         sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageInterceptor});
-
 
         return sqlSessionFactoryBean;
     }
