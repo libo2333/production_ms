@@ -33,4 +33,6 @@ public interface DeviceFaultMapper {
      * 根据选中删除
      * */
     int deleteByDeviceFaultID(String deviceFaultId);
+
+    DeviceFault queryOnlyById(String deviceId);
 }

@@ -27,11 +27,11 @@ public class SpringConfig {
         DruidDataSource druidDataSource = new DruidDataSource();
 
 
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/production_ssm?serverTimezone=GMT&allowPublicKeyRetrieval=true");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/erc?serverTimezone=GMT&allowPublicKeyRetrieval=true");
 
         druidDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         druidDataSource.setUsername("root");
-        druidDataSource.setPassword("sql7549785");
+        druidDataSource.setPassword("z15924528");
         return druidDataSource;
     }
 

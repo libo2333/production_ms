@@ -1,64 +1,44 @@
 package com.ssm.bean.device;
 
-
-import java.math.BigDecimal;
-import java.util.Date;
-
-
 import org.apache.ibatis.type.Alias;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Alias("device")/*小名供查询返回*/
-
 public class Device {
     private String deviceId;
+
     private String deviceName;
     private String deviceIdd;
     private String deviceTypeName;
+
     private String deviceTypeId;
+
     private String deviceStatusId;
 
     private String deviceStatus;
 
-    private Date devicePurchaseDate;
+    private String devicePurchaseDate;
 
     private BigDecimal devicePurchasePrice;
 
-    private Date deviceManufactureDate;
+    private String deviceManufactureDate;
 
-    private Date deviceServiceLife;
+    private String deviceServiceLife;
 
     private String deviceKeeperId;
+    private String deviceKeeper;
 
 
     private String note;
-
-    private String deviceKeeper;
-
-    public String getDeviceTypeName() {
-        return deviceTypeName;
-    }
-
-    public void setDeviceTypeName(String deviceTypeName) {
-        this.deviceTypeName = deviceTypeName;
-    }
-
-    public String getDeviceKeeper() {
-        return deviceKeeper;
-    }
-
-    public void setDeviceKeeper(String deviceKeeper) {
-        this.deviceKeeper = deviceKeeper;
-    }
 
     public String getDeviceId() {
         return deviceId;
     }
 
     public void setDeviceId(String deviceId) {
-        this.deviceId = deviceId == null ? null : deviceId.trim();
+        this.deviceId = deviceId;
     }
 
     public String getDeviceName() {
@@ -66,7 +46,7 @@ public class Device {
     }
 
     public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName == null ? null : deviceName.trim();
+        this.deviceName = deviceName;
     }
 
     public String getDeviceIdd() {
@@ -75,6 +55,14 @@ public class Device {
 
     public void setDeviceIdd(String deviceIdd) {
         this.deviceIdd = deviceIdd;
+    }
+
+    public String getDeviceTypeName() {
+        return deviceTypeName;
+    }
+
+    public void setDeviceTypeName(String deviceTypeName) {
+        this.deviceTypeName = deviceTypeName;
     }
 
     public String getDeviceTypeId() {
@@ -101,11 +89,11 @@ public class Device {
         this.deviceStatus = deviceStatus;
     }
 
-    public Date getDevicePurchaseDate() {
+    public String getDevicePurchaseDate() {
         return devicePurchaseDate;
     }
 
-    public void setDevicePurchaseDate(Date devicePurchaseDate) {
+    public void setDevicePurchaseDate(String devicePurchaseDate) {
         this.devicePurchaseDate = devicePurchaseDate;
     }
 
@@ -117,19 +105,19 @@ public class Device {
         this.devicePurchasePrice = devicePurchasePrice;
     }
 
-    public Date getDeviceManufactureDate() {
+    public String getDeviceManufactureDate() {
         return deviceManufactureDate;
     }
 
-    public void setDeviceManufactureDate(Date deviceManufactureDate) {
+    public void setDeviceManufactureDate(String deviceManufactureDate) {
         this.deviceManufactureDate = deviceManufactureDate;
     }
 
-    public Date getDeviceServiceLife() {
+    public String getDeviceServiceLife() {
         return deviceServiceLife;
     }
 
-    public void setDeviceServiceLife(Date deviceServiceLife) {
+    public void setDeviceServiceLife(String deviceServiceLife) {
         this.deviceServiceLife = deviceServiceLife;
     }
 
@@ -141,6 +129,14 @@ public class Device {
         this.deviceKeeperId = deviceKeeperId;
     }
 
+    public String getDeviceKeeper() {
+        return deviceKeeper;
+    }
+
+    public void setDeviceKeeper(String deviceKeeper) {
+        this.deviceKeeper = deviceKeeper;
+    }
+
     public String getNote() {
         return note;
     }
@@ -148,4 +144,5 @@ public class Device {
     public void setNote(String note) {
         this.note = note;
     }
+
 }

@@ -33,4 +33,8 @@ public interface DeviceTypeMapper {
      * 更新
      * */
     int updateByDeviceType(DeviceType record);
+    /**
+     * 只查询一个种类
+     **/
+    DeviceType queryByDeviceTypeIdAccurant(String deviceTypeId);
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cskaoyan.mapper.device.DeivceMapper">
+<mapper namespace="com.ssm.mapper.device.DeviceMapper">
     <!--查询语句device的所有数据-->
     <sql id="queryAllSql">
 	SELECT
@@ -25,19 +25,19 @@
     </sql>
     <!--封装-->
     <resultMap id="queryAllMap" type="device">
-        <id property="" column="device_id"/>
-        <result property="" column="device_name"/>
-        <result property="" column="device_keeper_id"/>
-        <result property="" column="emp_name"/>
-        <result property="" column="device_status"/>
-        <result property="" column="device_status_id"/>
-        <result property="" column="device_type_id"/>
-        <result property="" column="device_type_name"/>
-        <result property="" column="device_manufacture_date"/>
-        <result property="" column="device_purchase_date"/>
-        <result property="" column="device_purchase_price"/>
-        <result property="" column="device_service_life"/>
-        <result property="" column="note"/>
+        <id property="deviceId" column="device_id"/>
+        <result property="deviceName" column="device_name"/>
+        <result property="deviceKeeperId" column="device_keeper_id"/>
+        <result property="deviceKeeper" column="emp_name"/>
+        <result property="deviceStatus" column="device_status"/>
+        <result property="deviceStatusId" column="device_status_id"/>
+        <result property="deviceTypeId" column="device_type_id"/>
+        <result property="deviceTypeName" column="device_type_name"/>
+        <result property="deviceManufactureDate" column="device_manufacture_date"/>
+        <result property="devicePurchaseDate" column="device_purchase_date"/>
+        <result property="devicePurchasePrice" column="device_purchase_price"/>
+        <result property="deviceServiceLife" column="device_service_life"/>
+        <result property="note" column="note"/>
     </resultMap>
     <!--查询所有-->
     <select id="queryAll" resultMap="queryAllMap">
@@ -46,24 +46,28 @@
     <!--模糊设备编号查询-->
     <select id="queryByDeviceId" resultMap="queryAllMap">
         <include refid="queryAllSql"/>
-        WHERE a.device_id=#{%id%}
+        WHERE a.device_id like CONCAT('%',#{id},'%')
     </select>
     <!--设备名称模糊查询-->
     <select id="queryByDeviceName" resultMap="queryAllMap">
         <include refid="queryAllSql"/>
-        WHERE a.device_name=#{%name%}
+        WHERE a.device_name like CONCAT('%',#{name},'%')
     </select>
     <!--设备种类名称模糊查询-->
     <select id="queryByDeviceTypeName" resultMap="queryAllMap">
         <include refid="queryAllSql"/>
-        WHERE b.device_type_name=#{%typename%}
+        WHERE b.device_type_name like CONCAT('%',#{typeName},'%')
+    </select>
+    <select id="queryStatus" resultType="string">
+        select max(device_status) from device where device_status_id=#{statusId}
     </select>
     <!--新增前的查询-->
     <select id="queryIfByDeviceId" resultMap="queryAllMap">
-        where a.device_id=#{id}
+        <include refid="queryAllSql"/>
+        where a.device_id like CONCAT('%',#{id},'%')
     </select>
     <!--insertByDevice-->
-    <insert id="insertByDevice">
+    <insert id="insertByDevice" parameterType="device" >
 		INSERT INTO device
 		(device_id,
 		device_name,
@@ -74,26 +78,25 @@
 		device_manufacture_date,
 		device_purchase_date,
 		device_purchase_price,
-		device_service_life,
-		note) VALUES (deviceId,deviceName,deviceKeeperId,deviceStatus,deviceStatusId,deviceTypeId,deviceManufactureDate,
-		devicePurchaseDate,devicePurchasePrice,deviceServiceLife,note)
+		device_service_life,note) VALUES (#{deviceId},#{deviceName},#{deviceKeeperId},#{deviceStatus},#{deviceStatusId},#{deviceTypeId},#{deviceManufactureDate},
+		#{devicePurchaseDate},#{devicePurchasePrice},#{deviceServiceLife},#{note})
 	</insert>
     <!--updateByPrimaryKey-->
-    <update id="updateByPrimaryKey">
-        update device set device_id=#{up.deviceId},
+    <update id="updateByPrimaryKey" parameterType="device">
+        update device set
         device_name=#{up.deviceName},
         device_keeper_id=#{up.deviceKeeperId},
         device_status=#{up.deviceStatus},
         device_status_id=#{up.deviceStatusId},
         device_type_id=#{up.deviceTypeId},
         device_manufacture_date=#{up.deviceManufactureDate},
-        device_purchase_date=#{up.devicePurchaseData},
+        device_purchase_date=#{up.devicePurchaseDate},
         device_purchase_price=#{up.devicePurchasePrice},
         device_service_life=#{up.deviceServiceLife},
-        note=#{up.note}
+        note=#{up.note} where device_id=#{up.deviceId}
     </update>
     <!--deleteByPrimaryKey-->
     <delete id="deleteByPrimaryKey">
-        delete * from device where device_id=#{del}
+        delete from device where device_id=#{del}
     </delete>
 </mapper>

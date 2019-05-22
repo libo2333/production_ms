@@ -38,5 +38,7 @@ public interface DeviceMapper {
     /**
      * 根据选中devictId删除
      * */
-    int deleteByPrimaryKey(@Param("del") Device record);
+    int deleteByPrimaryKey(@Param("del") String record);
+
+    String queryStatus(String deviceStatusId);
 }

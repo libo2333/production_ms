@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cskaoyan.mapper.device.DeivceFaultMapper">
+<mapper namespace="com.ssm.mapper.device.DeviceFaultMapper">
     <sql id="queryAllSql">
      select a.device_fault_id,
       a.device_id,b.device_name,
       a.device_fault_cause,a.device_fault_detail,
       a.device_fault_date,a.device_fault_maintenance
       from device_fault a left join device b on
-      a.device_id=b.device_id;
+      a.device_id=b.device_id
     </sql>
     <resultMap id="queryMap" type="deviceFault">
         <id property="deviceFaultId" column="device_fault_id"/>
@@ -20,6 +20,10 @@
     </resultMap>
     <select id="queryAll" resultMap="queryMap">
         <include refid="queryAllSql"/>
+    </select>
+    <select id="queryOnlyById" resultMap="queryMap">
+        <include refid="queryAllSql"/>
+        where a.device_fault_id=#{id}
     </select>
     <!--模糊,根据故障编号模糊查询数据,queryByDeviceFaultId-->
     <!--根据设备名称模糊查询数据queryByDeviceName-->
@@ -37,8 +41,8 @@
         device_fault_detail,
         device_fault_date,
         device_fault_maintenance )VALUES(
-        deviceFaultId,deviceId,deviceFaultCause,deviceFaultDetail,
-        deviceFaultDate,deviceFaultMaintenance
+        #{deviceFaultId},#{deviceId},#{deviceFaultCause},#{deviceFaultDetail},
+        #{deviceFaultDate},#{deviceFaultMaintenance}
 )
     </insert>
     <update id="updateByDeviceFaultID">
